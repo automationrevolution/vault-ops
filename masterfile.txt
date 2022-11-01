@@ -1,0 +1,34 @@
+DEV
+
+vault -dev -dev-root-token-id=<some-id-here>
+
+export VAULT_ADDR=<localhost address>
+
+vault login
+
+
+Secrets
+
+vault kv -h
+
+vault kv put <dir path> <key:value> 
+
+vault kv get <dir path> <key:value>
+
+
+PROD
+
+export VAULT_TOKEN=<vault token> 
+
+vault operator unseal
+
+
+LOGS
+
+mkdir logs 
+
+vault audit enable file file-path=./logs/logfile.log
+
+tail -f ./logfile.log | jq
+
+
